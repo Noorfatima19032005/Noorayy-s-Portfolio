@@ -53,7 +53,7 @@
           <li>📞 0092-300-4159733</li>
           <li>📧 <a href="mailto:artsbynoorayyjam@gmail.com" class="plain-link">artsbynoorayyjam@gmail.com</a></li>
         </ul>
-        <a href="cv.pdf" class="download-btn" id="cv-generate">⬇ Download CV</a>
+        <a href="cv.pdf" class="download-btn">⬇ Download CV</a>
 
         <div id="download-popup">Preparing PDF...</div>
         <br><br>
@@ -149,9 +149,28 @@
       { threshold: 0.5 }
     );
     bars.forEach(bar => skillObs.observe(bar));
+
+    /* ✅ CV Download */
+    const popup = document.getElementById('download-popup');
+    document.getElementById('cv-generate').addEventListener('click', e => {
+      e.preventDefault();
+      popup.textContent = "🔄 Generating PDF...";
+      popup.style.opacity = "1";
+      popup.style.transform = "translateY(0)";
+      const element = document.body;
+      const opt = { 
+        margin: 5, 
+        filename: 'Noor_Fatima_Portfolio.pdf', 
+        image: { type: 'jpeg', quality: 0.98 }, 
+        html2canvas: { scale: 2 }, 
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save().then(() => { 
+        popup.textContent = "✅ PDF Ready!"; 
+        setTimeout(() => popup.style.opacity = "0", 2000); 
+      });
     });
   </script>
 
 </body>
 </html>
-
