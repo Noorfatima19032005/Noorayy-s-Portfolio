@@ -1,0 +1,48 @@
+body{font-family:'Segoe UI',sans-serif;margin:0;padding:0;background:#F9F7F2;color:#333;line-height:1.6;transition:all .4s;}
+body.dark{background:#111;color:#f5f5f5;}
+
+/* Theme Button */
+#theme-toggle{position:fixed;top:15px;right:15px;background:#6F4436;color:#fff;border:none;padding:8px 12px;border-radius:20px;cursor:pointer;z-index:1000;}
+
+/* Sections */
+section{padding:50px 8%;}
+h1,h2{color:#6F4436;margin-bottom:15px;}
+.big-title{font-size:2.5rem;color:#6F4436;}
+.fade-section{opacity:0;transform:translateY(50px);transition:opacity 1s ease,transform 1s ease;}
+.fade-section.visible{opacity:1;transform:translateY(0);}
+
+/* About */
+.about-section{display:flex;gap:50px;align-items:center;}
+.about-section .text{text-align:left;flex:1.2;}
+.about-section .images{flex:1;display:flex;gap:20px;}
+.about-section img{width:48%;border-radius:10px;}
+
+/* Process */
+.process-line{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;}
+.card{background:#fafafa;padding:15px;border-radius:8px;width:180px;transition:.3s;text-align:center;}
+.card:hover{background:#eee;}
+
+/* Userflow/Design System */
+.userflow img,.design-system img{width:100%;max-width:900px;display:block;margin:20px auto;}
+
+/* UI Slider */
+.ui-showcase{transition:background .5s ease;}
+.slider-container{max-width:300px;margin:0 auto;position:relative;overflow:hidden;border-radius:10px;}
+.slider{display:flex;transition:transform .6s ease;}
+.slider img{min-width:100%;border-radius:10px;}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);background:#6F4436;color:#fff;border:none;padding:6px 10px;cursor:pointer;border-radius:50%;}
+.arrow.left{left:-40px;}
+.arrow.right{right:-40px;}
+
+/* Desktop Screens */
+.desktop-images img{width:80%;max-width:900px;display:block;margin:20px auto;border-radius:10px;}
+
+/* Work With Me */
+.workwithme{background:#6F4436;color:#fff;text-align:center;padding:60px 20px;}
+.workwithme h2{color:#fff;}
+.cta-btn{background:#fff;color:#6F4436;padding:10px 20px;border-radius:30px;text-decoration:none;font-weight:bold;transition:.3s;}
+.cta-btn:hover{background:#000;color:#fff;}
+
+/* Footer */
+footer{text-align:center;padding:15px;background:#fff;color:#555;border-top:1px solid #ddd;}
+body.dark footer{background:#222;color:#ddd;}

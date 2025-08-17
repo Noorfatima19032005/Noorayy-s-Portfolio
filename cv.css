@@ -1,0 +1,127 @@
+body {
+  font-family: 'Playfair Display', serif;
+  background: #F9F7F2;
+  color: #1a1a1a;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container */
+.cv-container {
+  max-width: 850px;
+  background: #fff;
+  margin: 40px auto;
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+}
+
+/* Header */
+.cv-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 3px solid #BE9B7B;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+.name h1 { font-size: 2.2rem; color: #6F4436; margin: 0; }
+.name p { font-size: 1rem; color: #555; }
+.contact p { margin: 3px 0; font-size: 0.9rem; }a {
+  color: inherit;      /* Link ka color text ke sath same hoga */
+  text-decoration: none; /* Underline remove kar dega */
+}
+
+a:hover {
+  color: inherit;        /* Hover pe bhi color change nahi hoga */
+  text-decoration: underline; /* Optional: hover pe sirf underline aa jaye */
+}
+
+
+/* Sections */
+h2 {
+  color: #6F4436;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  border-left: 5px solid #BE9B7B;
+  padding-left: 10px;
+}
+section { margin-bottom: 25px; }
+
+/* Two Column Layout */
+.two-col {
+  display: flex;
+  gap: 20px;
+}
+.two-col > div {
+  flex: 1;
+  background: #fafafa;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+ul { padding-left: 15px; }
+ul li { margin-bottom: 5px; }
+
+/* Skills */
+.skills .skill { margin-bottom: 10px; }
+.skills span { font-size: 0.9rem; font-weight: bold; display: block; margin-bottom: 3px; }
+.bar {
+  width: 100%;
+  background: #ddd;
+  border-radius: 10px;
+  height: 8px;
+}
+.bar div {
+  background: linear-gradient(90deg, #6F4436, #BE9B7B);
+  height: 8px;
+  border-radius: 10px;
+}
+
+/* Strengths */
+.strengths ul { list-style: none; padding-left: 0; }
+.strengths li { margin-bottom: 5px; }
+
+/* Footer */
+.cv-footer {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 2px dashed #BE9B7B;
+  font-size: 0.9rem;
+  color: #555;
+}
+/* ✅ PRINT OPTIMIZATION */
+@media print {
+  body {
+    background: #fff !important;
+    color: #000;
+    margin: 0;
+  }
+  .cv-container {
+    width: 210mm;      /* A4 width */
+    height: auto;
+    padding: 20mm;
+    margin: 0 auto;
+    border: none;
+    box-shadow: none;
+    background: #fff;
+  }
+  .cv-header {
+    border-bottom: 2px solid #6F4436;
+  }
+  h2 {
+    color: #6F4436;
+    border-left: 4px solid #BE9B7B;
+    padding-left: 8px;
+  }
+  /* Remove footer border in PDF */
+  .cv-footer {
+    border-top: 1px solid #BE9B7B;
+  }
+  /* Force background graphics to appear */
+  * {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+

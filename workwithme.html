@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work With Me | Noorayy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="workwithme.css">
+</head>
+<body>
+
+<!-- ✅ Navbar -->
+<header>
+  <div class="logo">Arts by Noorayy</div>
+    <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="workwithme.html">Work With Me</a>
+  </nav>
+</header>
+
+<!-- ✅ Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Let’s Create Something Extraordinary Together</h1>
+    <p>Tell me about your project and let’s bring your vision to life.</p>
+  </div>
+</section>
+
+<!-- ✅ Contact Form -->
+<section class="contact-form-section fade-section">
+  <h2>Start Your Project</h2>
+  <form id="contactForm" class="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <select name="project-type" required>
+      <option value="">Select Project Type</option>
+      <option value="branding">Branding</option>
+      <option value="uiux">UI/UX Design</option>
+      <option value="web">Web Design</option>
+      <option value="other">Other</option>
+    </select>
+    <textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+    <button type="submit" class="glow-btn">Send Request →</button>
+  </form>
+</section>
+
+<!-- ✅ Social Links -->
+<section class="socials fade-section">
+  <p>Or reach out directly:</p>
+  <div class="social-links">
+    <a href="mailto:noorfatima.designs@gmail.com">Gmail</a>
+    <a href="https://instagram.com/yourhandle" target="_blank">Instagram</a>
+    <a href="https://www.behance.net/yourprofile" target="_blank">Behance</a>
+  </div>
+</section>
+
+<!-- ✅ Footer -->
+<footer>
+  <p>© 2025 Noor Fatima | All Rights Reserved</p>
+</footer>
+
+<!-- ✅ Success Popup -->
+<div id="successPopup" class="popup-overlay">
+  <div class="popup-box">
+    <h3>✅ Message Sent!</h3>
+    <p>Thank you for reaching out. I’ll get back to you soon! ✨</p>
+  </div>
+</div>
+
+<script>
+/* ✅ Scroll Animation */
+const sections=document.querySelectorAll('.fade-section');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){entry.target.classList.add('visible');}
+  });
+},{threshold:0.3});
+sections.forEach(sec=>observer.observe(sec));
+
+/* ✅ Success Popup */
+const form=document.getElementById('contactForm');
+const popup=document.getElementById('successPopup');
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  popup.style.display='flex';
+  setTimeout(()=>{popup.style.display='none';form.reset();},3000);
+});
+</script>
+
+</body>
+</html>

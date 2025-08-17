@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Balance App – UI/UX Case Study</title>
+  <link rel="stylesheet" href="balance.css" />
+</head>
+<body class="light">
+
+  <!-- 🌙 Theme Toggle -->
+  <button id="theme-toggle">🌙</button>
+
+  <!-- ✅ ABOUT PROJECT -->
+  <section class="about-section fade-section">
+    <div class="text">
+      <h1>Balance App UI/UX Case Study</h1>
+      <p>The Balance Meditation App redesign focused on **improving usability, visual flow, and engagement** while preserving its calming essence.</p>
+      <p>Through user research, we identified pain points and redesigned the experience to make it intuitive, minimal, and user-focused. This case study shows how thoughtful design can transform user interaction.</p>
+    </div>
+    <div class="images">
+      <div class="img-wrap"><img src="balance1.png" alt="UI Screen 1" /></div>
+      <div class="img-wrap"><img src="balance2.png" alt="UI Screen 2" /></div>
+    </div>
+  </section>
+
+  <!-- ✅ DESIGN PROCESS -->
+  <section class="design-process fade-section">
+    <h2>Design Process</h2>
+    <div class="process-line">
+      <div class="card">🔍 Research<br/><span>Surveys & Analysis</span></div>
+      <div class="card">📝 Wireframing<br/><span>Low-Fidelity Layouts</span></div>
+      <div class="card">🎨 UI Design<br/><span>Brand System & Colors</span></div>
+      <div class="card">⚡ Prototyping<br/><span>Interactive Flows</span></div>
+      <div class="card">✅ Testing<br/><span>User Feedback & Iteration</span></div>
+    </div>
+  </section>
+
+  <!-- ✅ AUDIENCE -->
+  <section class="audience fade-section">
+    <h2>Target Audience</h2>
+    <p>Designed for **users aged 18–40** who struggle with anxiety, stress, or lack of focus. The app delivers meditation tools, reminders, and a serene UI for a calming experience.</p>
+  </section>
+
+  <!-- ✅ USER STORIES -->
+  <section class="user-stories fade-section">
+    <h2>User Stories</h2>
+    <ul>
+      <li>As a user, I want to quickly access meditations based on mood.</li>
+      <li>As a user, I want daily reminders to stay consistent.</li>
+      <li>As a beginner, I want a simple UI with no distractions.</li>
+    </ul>
+  </section>
+
+  <!-- ✅ USER FLOW -->
+  <section class="userflow fade-section">
+    <h2>User Flow</h2>
+    <img src="workflow of balance app.png" alt="Workflow Diagram" />
+  </section>
+
+  <!-- ✅ DESIGN SYSTEM -->
+  <section class="design-system fade-section">
+    <h2 class="big-title">Design System</h2>
+    <p>The design system defines **typography, color palette, buttons, and icons**, ensuring consistency across mobile and desktop platforms.</p>
+    <img src="details.png" alt="Design System Details" />
+  </section>
+
+  <!-- ✅ UI DESIGN & RESULTS (Slider) -->
+  <section class="ui-showcase fade-section" id="ui-screens">
+    <h2>UI Designs & Results</h2>
+    <div class="slider-container">
+      <button class="arrow left">←</button>
+      <div class="slider" id="slider">
+        <img src="balance3.png" alt="UI 3"/>
+        <img src="balance4.png" alt="UI 4"/>
+        <img src="balance5.png" alt="UI 5"/>
+        <img src="balance6.png" alt="UI 6"/>
+        <img src="balance7.png" alt="UI 7"/>
+        <img src="balance8.png" alt="UI 8"/>
+        <img src="balance9.png" alt="UI 9"/>
+      </div>
+      <button class="arrow right">→</button>
+    </div>
+  </section>
+
+  <!-- ✅ DESKTOP SCREENS -->
+  <section class="desktop-images fade-section">
+    <h2>Desktop Screens</h2>
+    <img src="Balance Meditation App Homepage.png" alt="Wireframe" class="desktop-img"/>
+    <img src="Asset2@4x.png" alt="Wide Desktop UI" class="desktop-img wide"/>
+    <img src="Asset3@4x.png" alt="Desktop UI" class="desktop-img"/>
+  </section>
+
+  <!-- ✅ WORK WITH ME CTA -->
+  <section class="workwithme fade-section">
+    <h2>Let’s Work Together</h2>
+    <p>If you have a project in mind or want to collaborate on impactful designs, let's build something amazing.</p>
+    <a href="workwithme.html" class="cta-btn">Work With Me →</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Noor Fatima | All Rights Reserved</p>
+  </footer>
+
+<script>
+/* 🌙 Theme Toggle */
+document.getElementById("theme-toggle").addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+});
+
+/* ✅ Scroll Fade Animation */
+const sections=document.querySelectorAll('.fade-section');
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('visible'); });
+},{threshold:0.3});
+sections.forEach(s=>observer.observe(s));
+
+/* ✅ UI Screens Slider with Section BG Change */
+const slider=document.getElementById("slider");
+const uiSection=document.getElementById("ui-screens");
+const screens=slider.querySelectorAll("img");
+const colors=["#1b1b1b","#252525","#202020","#2a2a2a","#1f1f1f","#242424","#181818"];
+let index=0;
+function updateSlider(){
+  slider.style.transform=`translateX(-${index*100}%)`;
+  uiSection.style.background=colors[index];
+}
+document.querySelector(".arrow.right").addEventListener("click",()=>{index=(index+1)%screens.length;updateSlider();});
+document.querySelector(".arrow.left").addEventListener("click",()=>{index=(index-1+screens.length)%screens.length;updateSlider();});
+updateSlider();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UI/UX Design | Arts by Noorayy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset & base */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Playfair Display', serif;
+    }
+    body {
+      background: #F9F7F2;
+      color: #1a1a1a;
+      line-height: 1.7;
+      scroll-behavior: smooth;
+      transition: background 0.3s, color 0.3s;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    body.dark {
+      background: #1a1a1a;
+      color: #f5f5f5;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: background 0.3s;
+    }
+    body.dark .navbar {
+      background: #222;
+      border-bottom: 1px solid #555;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 1.3rem;
+      color: #6F4436;
+      cursor: pointer;
+      user-select: none;
+    }
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #BE9B7B;
+    }
+    .theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+    
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem 3rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-style: italic;
+      color: #6F4436;
+    }
+    .hero p {
+      margin-top: 0.8rem;
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Projects container */
+    .projects-container {
+      max-width: 900px;
+      margin: 0 auto 4rem;
+      padding: 0 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    /* Single project card */
+    .project-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      width: 320px;
+      cursor: pointer;
+      perspective: 1500px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    body.dark .project-card {
+      background: #2a2a2a;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .project-card:hover {
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      transform: scale(1.05);
+    }
+
+    /* Flip container */
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .project-card.flipped .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Front and Back faces */
+    .flip-front, .flip-back {
+      backface-visibility: hidden;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+    }
+    .flip-front {
+      background: inherit;
+    }
+    .flip-back {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #6F4436;
+      color: #fff;
+      transform: rotateY(180deg);
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    /* Project Image */
+    .project-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Project title on front */
+    .project-title {
+      padding: 1rem;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #6F4436;
+      text-align: center;
+    }
+
+    /* Button on back */
+    .details-btn {
+      margin-top: 1rem;
+      background: #BE9B7B;
+      border: none;
+      color: #fff;
+      padding: 0.6rem 1.4rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .details-btn:hover {
+      background: #6F4436;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .project-card {
+        width: 90vw;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo" onclick="window.location.href='index.html'">Arts by Noorayy</div>
+    <nav>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="workwithme.html">Work With Me</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>UI/UX Design</h1>
+    <p>Explore my carefully crafted user interfaces and user experiences designed to connect and delight users.</p>
+  </section>
+
+  <!-- Projects -->
+  <main class="projects-container">
+    <div class="project-card" id="project1">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <img class="project-img" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500&q=80" alt="Balance Meditation App" />
+          <div class="project-title">Balance Meditation App</div>
+        </div>
+        <div class="flip-back">
+          <p>A calming app designed to help users meditate and track their mindfulness journey with beautiful UI and smooth UX.</p>
+          <button class="details-btn">View Details</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+<script>
+  // Dark Mode toggle
+  const themeToggle = document.querySelector('.theme-toggle');
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+  });
+
+  // Flip card and navigate after zoom-out animation
+  const projectCard = document.getElementById('project1');
+  const flipInner = projectCard.querySelector('.flip-inner');
+  const btn = projectCard.querySelector('.details-btn');
+
+  function flipAndNavigate() {
+    // Add flip class
+    projectCard.classList.add('flipped');
+    
+    // After flip animation, navigate to details page
+    setTimeout(() => {
+      window.location.href = 'uiux-details.html'; // Change this URL to your UI/UX details page
+    }, 700); // should match CSS transition duration (0.6s + small buffer)
+  }
+
+  // Flip on clicking either card front or the button
+  projectCard.addEventListener('click', (e) => {
+    // To avoid double flip if button clicked, check target
+    if (e.target !== btn) {
+      flipAndNavigate();
+    }
+  });
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation(); // prevent event bubbling to card
+    flipAndNavigate();
+  });
+</script>
+
+</body>
+</html>
