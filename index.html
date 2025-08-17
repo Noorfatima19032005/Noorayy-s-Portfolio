@@ -6,17 +6,6 @@
   <title>Noorayy Portfolio 2025</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
-  <style>
-    /* Extra style for removing blue underline from links */
-    .plain-link {
-      color: inherit;
-      text-decoration: none;
-    }
-    .plain-link:hover {
-      text-decoration: underline;
-      color: #6F4436;
-    }
-  </style>
 </head>
 <body>
 
@@ -53,7 +42,7 @@
           <li>📞 0092-300-4159733</li>
           <li>📧 <a href="mailto:artsbynoorayyjam@gmail.com" class="plain-link">artsbynoorayyjam@gmail.com</a></li>
         </ul>
-        <a href="cv.pdf" class="download-btn">⬇ Download CV</a>
+        <a href="cv.html" class="download-btn">⬇ Download CV</a>
 
         <div id="download-popup">Preparing PDF...</div>
         <br><br>
@@ -152,7 +141,7 @@
 
     /* ✅ CV Download */
     const popup = document.getElementById('download-popup');
-    document.getElementById('cv-generate').addEventListener('click', e => {
+    document.getElementById('cv-generate')?.addEventListener('click', e => {
       e.preventDefault();
       popup.textContent = "🔄 Generating PDF...";
       popup.style.opacity = "1";
